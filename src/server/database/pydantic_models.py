@@ -9,11 +9,13 @@ class ChangePassword(ModifyBaseModel):
     password: str
 
 
-class LoginData(ChangePassword):
+class LoginData(BaseModel):
+    password: str
     login: str
 
 
 class User(LoginData):
+    id: int = 0
     position: str
     power_level: int
 

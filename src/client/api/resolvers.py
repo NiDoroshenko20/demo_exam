@@ -21,18 +21,18 @@ def check_connection():
 
 @server_available
 def login(data: LoginData) -> dict:
-    return requests.get(url=f'{settings.URL}/users/login', data=f'{{"login": "{data.login}", "password": "{data.password}"}}').json()
+    return requests.post(url=f'{settings.URL}/user/login', data=f'{{"login": "{data.login}", "password": "{data.password}"}}').json()
 
 
 @server_available
 def register(data: User) -> dict:
-    return requests.post(url=f'{settings.URL}/users/', data=f'{{"id": 0, "position": "{data.position}", "login": "{data.login}", "password": "{data.password}", "power_level": {data.power_level}}}').json()
+    return requests.post(url=f'{settings.URL}/user/', data=f'{{"id": 0, "position": "{data.position}", "login": "{data.login}", "password": "{data.password}", "power_level": {data.power_level}}}').json()
 
 
 @server_available
 def update_password(id: int, password: str) -> dict:
-    return requests.put(url=f'{settings.URL}/users/change/{id}', data=f'{{"password": "{password}"}}').json()
+    return requests.put(url=f'{settings.URL}/user/change/{id}', data=f'{{"id": 0, "password": "{password}"}}').json()
 
 
 def delete_account(id: int) -> dict:
-    return requests.delete(url=f'{settings.URL}/users/{id}').json()
+    return requests.delete(url=f'{settings.URL}/user/{id}').json()

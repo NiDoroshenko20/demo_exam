@@ -7,6 +7,7 @@ def login(login: str, password: str) -> dict:
         id=res.id,
         login=res.login,
         password=res.password,
+        position=res.position,
         power_level=res.power_level
     )} if res else {'code': 400, 'msg': 'Not found', 'result': None}
 

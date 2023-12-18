@@ -6,7 +6,7 @@ from src.server.database.pydantic_models import LoginData, ChangePassword
 user_rout = routers[0]
 
 
-@user_rout.get(path='/login', response_model=dict)
+@user_rout.post(path='/login', response_model=dict)
 def log_in(data: LoginData) -> dict:
     return login(login=data.login, password=data.password)
 

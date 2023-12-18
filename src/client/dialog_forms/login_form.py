@@ -8,7 +8,7 @@ class LoginForm(QtWidgets.QDialog):
         self.parent = parent
         self.__init_ui()
         self.__setting_ui()
-        self.exec_()
+        self.show()
     
     def __init_ui(self) -> None:
         self.main_h_layout = QtWidgets.QHBoxLayout()
