@@ -19,6 +19,7 @@ def update(id: int, password: str) -> dict:
         model.save()
     return {'code': 200, 'msg': 'Succesfully', 'result': pydantic_models.User(
         id=model.id,
+        position=model.position,
         login=model.login,
         password=model.password,
         power_level=model.power_level

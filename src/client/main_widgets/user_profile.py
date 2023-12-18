@@ -122,7 +122,6 @@ class UserProfile(QtWidgets.QWidget):
         return True
     
     def on_edit_button_clicked(self) -> None:
-        self.parent
         self.switch_on_or_off_line_edits(True)
         self.allow_button.setEnabled(True)
         self.edit_button.setEnabled(False)
@@ -131,7 +130,7 @@ class UserProfile(QtWidgets.QWidget):
         if not self.data_is_valid():
             return
         
-        self.parent.session.update(login=self.login_line_edit.text(), password=self.password_line_edit.text())
+        self.parent.session.update(password=self.password_line_edit.text())
 
         if self.parent.session.error:
             self.parent.show_message(text=self.parent.session.error, error=True, parent=self)
