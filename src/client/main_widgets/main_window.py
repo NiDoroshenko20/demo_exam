@@ -24,7 +24,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.user_profile = UserProfile(self)
         self.authorization_menu = AuthorizationMenu(self)
     
-    def start_server(self) -> multiprocessing.Process:
+    def start_server(self) -> None:
         self.server_process = multiprocessing.Process(target=start_server)
         self.server_process.start()
     
